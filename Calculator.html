@@ -1,0 +1,235 @@
+<html>
+
+    <head>
+        <title>Calculator</title>
+    </head>
+
+    <style>
+        #canvas{
+            width: 500;
+            height: 650;
+            background-color: aquamarine;
+            
+        }
+        .screen{
+            width:100%;
+            height: 75px;
+            font-size: 50px;
+            text-align: right;
+            visibility: visible;
+            
+            
+        }
+        
+        .btn{
+            width:100px;
+            height:100px;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+            background-color: aliceblue;
+            
+        }
+         
+        .btn1{
+            width:400px;
+            height:100px;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+            background-color: aliceblue;
+            
+        }
+        
+        
+        
+    </style>
+
+    <body>
+    
+        <center>
+        <div id="canvas" >
+        
+            <form id="screen" name="calculator">
+            
+                <input type="text" name="display" class="screen"  id="wind" placeholder="0">
+                
+                
+            </form>
+            
+            <br>
+            
+            <table>
+            
+                <tr>
+                <td> <button type="button" class="btn" value="9" onclick="calculator.display.value += 9" >9</button></td>
+                <td> <button type="button" class="btn" value="8" onclick="calculator.display.value += 8" >8</button></td>
+                <td> <button type="button" class="btn" value="7" onclick="calculator.display.value += 7" >7</button></td>
+                    
+                <td> <button type="button" class="btn" value="+" onclick="addition()" >+</button></td>
+                
+                </tr>
+                
+                <tr>
+                <td> <button type="button" class="btn" value="6" onclick="calculator.display.value += 6" >6</button></td>
+                <td> <button type="button" class="btn" value="5" onclick="calculator.display.value += 5" >5</button></td>
+                <td> <button type="button" class="btn" value="4" onclick="calculator.display.value += 4" >4</button></td>
+                    
+                <td> <button type="button" class="btn" value="-" onclick="subs()" >-</button></td>
+                </tr>
+                
+                <tr>
+                <td> <button type="button" class="btn" value="3" onclick="calculator.display.value += 3" >3</button></td>
+                <td> <button type="button" class="btn" value="2" onclick="calculator.display.value += 2" >2</button></td>
+                <td> <button type="button" class="btn" value="1" onclick="calculator.display.value += 1" >1</button></td>
+                    
+                <td> <button type="button" class="btn" value="x" onclick="mult()" >x</button></td>
+                </tr>
+                
+                <tr>
+                <td> <button type="button" class="btn" value="0" onclick="calculator.display.value += 0" >0</button></td>
+                <td> <button type="button" class="btn" value="00" onclick="calculator.display.value += ." >.</button></td>
+                <td> <button type="button" class="btn" value="." onclick="equals()" >=</button></td>
+                    
+                <td> <button type="button" class="btn" value="/" onclick="division()" >/</button></td>
+                </tr>
+                
+            </table>
+            
+            <button type="button" class="btn1" onclick="cleartab()">C</button>
+                
+            
+            <!-- <button onclick="reset()">Click</button> -->
+            
+                
+            <script>
+            
+                //alert("Welcome User.");
+                
+                function reset(){
+                 
+                    var test;
+                    
+                    test=(calculator.display.value);
+                    document.write(num);
+                    
+                }
+                
+                var check;
+                var num;
+                var i;
+                
+                
+                var n1= 0;
+                var n2 = 0;
+                var num2;
+                var operator_plus=false;
+                var operator_minus=false;
+                var operator_multi=false;
+                var operator_divi=false;
+                var results;
+                var flag=false;
+                
+                
+                function cleartab(){
+                    
+                    document.getElementById('wind').value="";
+                }
+                
+                function addition(){ 
+                    
+                    n1=calculator.display.value;
+                    
+                    operator_plus=true;
+                    
+                    calculator.display.value="";
+                    
+                    
+                    n2=calculator.display.value;
+                
+                    
+                }
+                
+                 function subs(){
+                    
+                     
+                    n1=document.getElementById('wind').value;
+                    
+                     operator_minus=true;
+                    
+                    document.getElementById('wind').value="";
+                    
+                    
+                    n2=document.getElementById('wind').value;
+                    
+                    
+                     
+                }
+                 function mult(){
+                    
+                     
+                    n1=document.getElementById('wind').value;
+                    
+                     operator_multi=true;
+                     
+                    document.getElementById('wind').value="";
+                    
+                    
+                    n2=document.getElementById('wind').value;
+                    
+                    
+                     
+                }
+                 function division(){
+                    
+                     
+                    n1=document.getElementById('wind').value;
+                    
+                    operator_divi="true";
+                     
+                    document.getElementById('wind').value="";
+                    
+                    
+                    n2=document.getElementById('wind').value;
+                    
+                    
+                     
+                }
+                
+                
+                function equals(){
+                    
+                    if (operator_plus==true){
+                        results= eval(n1+n2);
+                    }
+                     else if (operator_minus==true){
+                        results= (n1-n2);
+                    }
+                     else if (operator_divi==true){
+                        results= (n1/n2);
+                    }
+                     else if (operator_multi==true){
+                        results= (n1*n2);
+                    }
+                    
+                    else{
+                        
+                        results-n1;
+                        
+                    }
+                    
+                    
+                    document.getElementById('wind').value=results;
+                    
+                    
+                }
+                
+                
+                
+            </script>
+            
+            
+        </div>
+        </center>
+    </body>
+    
+    
+</html>
